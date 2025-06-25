@@ -1,4 +1,3 @@
-
 import java.awt.*;
 import java.util.*;
 import java.util.List;
@@ -24,7 +23,7 @@ class Grafo {
         return RutaOptima.dijkstra(this, src, dst);
     }
 
-    // Método para inicializar nodos del 1 al 20
+
     public void inicializarNodos1a20() {
         for (int i = 1; i <= 20; i++) {
             String id = String.valueOf(i);
