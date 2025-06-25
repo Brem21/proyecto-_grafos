@@ -11,10 +11,10 @@ class RutaOptima {
         Nodo end = g.nodos.get(fin);
 
         for (Nodo nodo : g.nodos.values()) {
-            dist.put(nodo, Double.MAX_VALUE);
+            dist.put(nodo, Double.valueOf(Double.MAX_VALUE));
         }
 
-        dist.put(start, 0.0);
+        dist.put(start, Double.valueOf(0.0));
         pq.add(start);
 
         while (!pq.isEmpty()) {
@@ -35,7 +35,7 @@ class RutaOptima {
             for (Arco arco : vecinos) {
                 double nuevoDist = dist.get(actual) + arco.peso;
                 if (nuevoDist < dist.get(arco.destino)) {
-                    dist.put(arco.destino, nuevoDist);
+                    dist.put(arco.destino, Double.valueOf(nuevoDist));
                     prev.put(arco.destino, actual);
                     pq.add(arco.destino);
                 }
