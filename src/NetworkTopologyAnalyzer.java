@@ -131,13 +131,14 @@ public class NetworkTopologyAnalyzer extends JFrame {
 
     }
     private void mostrarDetallesAtaque() {
-        Ataque[] ataques = Ataque.values(); // Solo DDOS, BRUTE_FORCE, MITM
+        Ataque[] ataques = Ataque.values();
         Random rand = new Random();
+
 
         StringBuilder detalles = new StringBuilder("Detalles del Ataque Simulado:\n\n");
 
         for (Ataque ataque : ataques) {
-            int probabilidad = rand.nextInt(61) + 40; // entre 40% y 100%
+            int probabilidad = rand.nextInt(61) + 40;
             String impacto;
             if (probabilidad >= 85) {
                 impacto = "Alto";
