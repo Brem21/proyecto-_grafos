@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class NetworkTopologyAnalyzer extends JFrame {
     Grafo grafo = new Grafo();
@@ -121,7 +122,41 @@ public class NetworkTopologyAnalyzer extends JFrame {
                 "Ataque", JOptionPane.QUESTION_MESSAGE, null, ataques, ataques[0]));
         ruta = grafo.rutaOptima(origen, destino, tipo);
         panelDibujo.repaint();
+        ruta = grafo.rutaOptima(origen, destino, tipo);
+        panelDibujo.repaint();
+        mostrarDetallesAtaque(); // Muestra la ventana automáticamente
+
+
+
+
     }
+    private void mostrarDetallesAtaque() {
+        Ataque[] ataques = Ataque.values(); // Solo DDOS, BRUTE_FORCE, MITM
+        Random rand = new Random();
+
+        StringBuilder detalles = new StringBuilder("Detalles del Ataque Simulado:\n\n");
+
+        for (Ataque ataque : ataques) {
+            int probabilidad = rand.nextInt(61) + 40; // entre 40% y 100%
+            String impacto;
+            if (probabilidad >= 85) {
+                impacto = "Alto";
+            } else if (probabilidad >= 60) {
+                impacto = "Medio";
+            } else {
+                impacto = "Bajo";
+            }
+            detalles.append(String.format("- %s: Probabilidad %d%%, Impacto: %s\n", ataque.name(), (Object) probabilidad, impacto));
+        }
+
+        JTextArea textArea = new JTextArea(detalles.toString());
+        textArea.setEditable(false);
+        textArea.setFont(new Font("Monospaced", Font.PLAIN, 14));
+        JScrollPane scrollPane = new JScrollPane(textArea);
+
+        JOptionPane.showMessageDialog(this, scrollPane, "Detalles del Ataque Simulado", JOptionPane.INFORMATION_MESSAGE);
+    }
+
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new NetworkTopologyAnalyzer().setVisible(true));
