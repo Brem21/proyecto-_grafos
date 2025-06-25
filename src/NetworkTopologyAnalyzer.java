@@ -147,7 +147,7 @@ public class NetworkTopologyAnalyzer extends JFrame {
             } else {
                 impacto = "Bajo";
             }
-            detalles.append(String.format("- %s: Probabilidad %d%%, Impacto: %s\n", ataque.name(), (Object) probabilidad, impacto));
+            detalles.append(String.format("- %s: Probabilist %d%%, Impacto: %s\n", ataque.name(), (Object) probabilidad, impacto));
         }
 
         JTextArea textArea = new JTextArea(detalles.toString());

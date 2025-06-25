@@ -22,8 +22,7 @@ class RutaOptima {
             if (!visitados.add(actual)) continue;
 
             // Obtener vecinos como si el grafo fuera no dirigido
-            List<Arco> vecinos = new ArrayList<>();
-            vecinos.addAll(g.adyacencia.getOrDefault(actual, new ArrayList<>()));
+            List<Arco> vecinos = new ArrayList<>(g.adyacencia.getOrDefault(actual, new ArrayList<>()));
             for (Map.Entry<Nodo, List<Arco>> entry : g.adyacencia.entrySet()) {
                 for (Arco arco : entry.getValue()) {
                     if (arco.destino.equals(actual)) {
