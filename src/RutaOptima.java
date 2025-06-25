@@ -43,7 +43,7 @@ class RutaOptima {
 
         List<Nodo> camino = new LinkedList<>();
         for (Nodo at = end; at != null; at = prev.get(at)) {
-            camino.add(0, at);
+            camino.addFirst(at);
         }
 
         return camino;

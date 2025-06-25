@@ -29,7 +29,7 @@ public class NetworkTopologyAnalyzer extends JFrame {
                     g2.fillOval(nodo.posicion.x - 15, nodo.posicion.y - 15, 30, 30);
                     g2.setColor(Color.BLACK);
                     g2.drawOval(nodo.posicion.x - 15, nodo.posicion.y - 15, 30, 30);
-                    g2.drawString(nodo.id, nodo.posicion.x - 10, nodo.posicion.y - 20);
+                    g2.drawString( nodo.id, nodo.posicion.x - 10, nodo.posicion.y - 20);
                 }
 
                 // Dibujar arcos
@@ -56,7 +56,7 @@ public class NetworkTopologyAnalyzer extends JFrame {
             private void drawArrow(Graphics2D g2, Point from, Point to, Color color, int thickness) {
                 g2.setColor(color);
                 g2.setStroke(new BasicStroke(thickness));
-                g2.drawLine(from.x, from.y, to.x, to.y);
+                g2.drawLine(from.x,  from.y, to.x, to.y);
 
                 double dx = to.x - from.x;
                 double dy = to.y - from.y;
